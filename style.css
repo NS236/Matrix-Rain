@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background: "#000";
+}
+#output {
+  outline: 2px solid red;
+  font-family: monospace;
+  font-size: 35px;
+  letter-spacing: 0px;
+  line-height: 25px;
+  word-wrap: break-word;
+}
