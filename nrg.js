@@ -2,13 +2,13 @@ class NRG {
   constructor() {
     this.x = Math.floor(Math.random() * cols);
     this.y = Math.floor(Math.random() * rows);
-    this.speed = Math.floor(2 + Math.random() * 8);
+    this.speed = Math.floor(2 + Math.random() * 3);
   }
 
   reset() {
     this.x = Math.floor(Math.random() * cols);
     this.y = 0;
-    this.speed = Math.floor(2 + Math.random() * 8);
+    this.speed = Math.floor(2 + Math.random() * 3);
   }
 
   move() {
