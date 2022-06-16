@@ -2,11 +2,15 @@ const canvas = fullscreenCanvas();
 const ctx = canvas.getContext("2d");
 
 const charList = "αβεζξλμΣςσϡψΨΧΦΩϜΆᾅῈἐἥὋῩΏϞϏϗϛϰϖͽͲæʤʣʩɚĦʯĮĳʞʪɮʫɰɸøŒœʠßʂŦʧʨʦǘʉʒʭʬŹʘʑʓ∂∉⨚⨔";
-// const charList = "01";
+const binList = "01";
 const charSize = 18;
 
 function randomChar() {
   return charList[Math.floor(Math.random() * charList.length)];
+}
+
+function randomBin() {
+  return binList[Math.floor(Math.random() * binList.length)];
 }
 
 let cols, rows;
@@ -27,7 +31,7 @@ function runProgram() {
 
   for (let j = 0; j < rows; j++) {
     for (let i = 0; i < cols; i++) {
-      chars.push(new Char(i * charSize + charSize / 2, j * charSize + charSize / 2));
+      chars.push(new Char(i * charSize + charSize / 2, j * charSize + charSize / 2, i));
     }
   }
 
