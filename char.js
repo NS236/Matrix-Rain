@@ -1,4 +1,5 @@
-const minBrightness = 0.05;
+let minBrightness = 0.1;
+let maxBrightness = 3;
 const mutationRate = 0.02;
 class Char {
   constructor(x, y) {
@@ -7,37 +8,45 @@ class Char {
     this.char = randomChar();
     this.brightness = minBrightness;
     this.decrease = 0.05 + Math.random() / 100;
+    this.static = false;
   }
 
   show() {
     ctx.textAlign = "center";
     ctx.shadowColor = "#fff";
     ctx.font = `bold ${charSize}px monospace`;
-    if(this.brightness > 2.75) {
+    if (this.brightness > maxBrightness - 0.25) {
       ctx.shadowBlur = 15;
       ctx.fillStyle = `rgba(180, 255, 200, ${this.brightness})`
-    } else {
+    } else if (!this.static) {
       ctx.shadowBlur = Math.floor(this.brightness * 2);
       ctx.fillStyle = `rgba(0, 225, 50, ${this.brightness})`
+    } else {
+      ctx.shadowBlur = Math.floor(this.brightness * 5);
+      ctx.fillStyle = `rgba(180, 255, 200, ${this.brightness})`
     }
     ctx.fillText(this.char, this.x, this.y);
   }
 
   randomize() {
-    this.char = randomChar();
+    if (!this.static) {
+      this.char = randomChar();
+    }
   }
 
   illuminate() {
-    this.brightness = 3;
-    this.decrease = 0.05 + Math.random() / 100;
+    this.brightness = maxBrightness;
+    if (!this.static) {
+      this.decrease = 0.05 + Math.random() / 100;
+    }
   }
 
   fade() {
-    if(this.brightness > minBrightness) {
+    if (this.brightness > minBrightness) {
       this.brightness -= this.decrease;
     } else {
       this.brightness = minBrightness;
     }
-     
+
   }
 }
