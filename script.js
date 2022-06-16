@@ -1,12 +1,10 @@
 const canvas = fullscreenCanvas();
 const ctx = canvas.getContext("2d");
 
-const charList = "αβεζξλμΣςσϡψΨΧΦΩϜΆᾅῈἐἥὋῩΏϞϏϗϛϰϖͽͲæʤʣʩɚĦʯĮĳʞʪɮʫɰɸøŒœʠßʂŦʧʨʦǘʉʒʭʬŹʘʑʓ∂∉⨚⨔";
-// const charList = "01";
 const charSize = 18;
 
 function randomChar() {
-  return charList[Math.floor(Math.random() * charList.length)];
+  return String.fromCharCode(0x30A0 + Math.floor(Math.random() * 97));
 }
 
 let cols, rows;
